@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import Foundation
+import AudioToolbox
+import AVFoundation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,AVAudioPlayerDelegate  {
 
     var window: UIWindow?
-
+    var audioPlayer: AVAudioPlayer?
+//    let alarmScheduler:
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+//        var error: NSError?
+        
+        
+        
         return true
     }
 
