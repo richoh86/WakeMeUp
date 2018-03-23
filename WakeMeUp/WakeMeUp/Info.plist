@@ -23,7 +23,11 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
+<<<<<<< HEAD
 	<string>Edit</string>
+=======
+	<string>Weekdays</string>
+>>>>>>> origin/detail
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
