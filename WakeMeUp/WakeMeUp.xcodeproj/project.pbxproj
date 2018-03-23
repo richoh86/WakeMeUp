@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010CE3FE2065703700ED5BB4 /* AlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010CE3FD2065703700ED5BB4 /* AlarmData.swift */; };
+		010CE4002065953200ED5BB4 /* IU.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 010CE3FF2065953200ED5BB4 /* IU.mp3 */; };
 		79AA841D2064F4F6003BF774 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AA841C2064F4F6003BF774 /* AppDelegate.swift */; };
 		79AA841F2064F4F6003BF774 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AA841E2064F4F6003BF774 /* MainViewController.swift */; };
 		79AA84222064F4F6003BF774 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AA84202064F4F6003BF774 /* Main.storyboard */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010CE3FD2065703700ED5BB4 /* AlarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmData.swift; sourceTree = "<group>"; };
+		010CE3FF2065953200ED5BB4 /* IU.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IU.mp3; sourceTree = "<group>"; };
 		79AA84192064F4F6003BF774 /* WakeMeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakeMeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AA841C2064F4F6003BF774 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79AA841E2064F4F6003BF774 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 				79AA844020650B52003BF774 /* Yoo */,
 				79AA843F20650B45003BF774 /* Choi */,
 				79AA841C2064F4F6003BF774 /* AppDelegate.swift */,
+				010CE3FF2065953200ED5BB4 /* IU.mp3 */,
 				79AA84232064F4F6003BF774 /* Assets.xcassets */,
 				79AA84252064F4F6003BF774 /* LaunchScreen.storyboard */,
 				79AA84282064F4F6003BF774 /* Info.plist */,
@@ -110,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				79AA842E20650A02003BF774 /* EditViewController.swift */,
+				010CE3FD2065703700ED5BB4 /* AlarmData.swift */,
 				79AA843620650AD3003BF774 /* Edit.storyboard */,
 			);
 			path = Yoo;
@@ -148,6 +154,11 @@
 					79AA84182064F4F6003BF774 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -174,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				010CE4002065953200ED5BB4 /* IU.mp3 in Resources */,
 				79AA843720650AD3003BF774 /* Edit.storyboard in Resources */,
 				79AA843D20650B0D003BF774 /* LabelEdit.storyboard in Resources */,
 				79AA843B20650AF1003BF774 /* Weekdays.storyboard in Resources */,
@@ -192,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79AA841F2064F4F6003BF774 /* MainViewController.swift in Sources */,
+				010CE3FE2065703700ED5BB4 /* AlarmData.swift in Sources */,
 				79AA844420651D1E003BF774 /* MainCell.swift in Sources */,
 				79AA843520650AB8003BF774 /* LabelEditViewController.swift in Sources */,
 				79AA843320650A9B003BF774 /* WeekdaysViewController.swift in Sources */,

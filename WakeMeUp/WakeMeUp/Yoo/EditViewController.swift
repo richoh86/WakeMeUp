@@ -8,7 +8,9 @@
 
 import UIKit
 
-class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+    
+    
     
     @IBOutlet weak var picker: UIDatePicker!
     @IBOutlet weak var table: UITableView!
@@ -50,8 +52,9 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell?.accessoryType = .detailDisclosureButton
             } else if index == 3 {
                 cell!.textLabel!.text = "Snooze"
-                //                cell?.detailTextLabel?.text =
-                cell?.accessoryType = .detailDisclosureButton
+                let sw = UISwitch()
+                
+                cell?.accessoryView = sw
             }
         } else if section == 1 {
             cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "settingCell")
@@ -73,10 +76,27 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @objc func saveButtonAction(_ sender: Any){
         print("save 버튼 호출")
         
+        AlarmData.date = picker.date
+        alarmCount += 1
         print(picker.date)
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let storyboard: UIStoryboard = self.storyboard!
+            let nextView = storyboard.instantiateViewController(withIdentifier: "nextView")
+            self.present(nextView, animated: true, completion: nil)
+        } else if indexPath.row == 1 {
+            let weekdays = self.storyboard?.instantiateViewController(withIdentifier: "weekdays") as! WeekdaysViewController
+            present(weekdays, animated: true, completion: nil)
+        } else if indexPath.row == 2 {
+            let labeledit = self.storyboard?.instantiateViewController(withIdentifier: "labeledit") as! LabelEditViewController
+            present(labeledit, animated: true, completion: nil)
+        } else if indexPath.row == 3 {
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +107,5 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.didReceiveMemoryWarning()
         
     }
-    
-
 }
+
