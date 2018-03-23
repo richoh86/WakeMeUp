@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var picker: UIDatePicker!
     @IBOutlet weak var table: UITableView!
+    
+    var alarm: Bool = true
+    var selectTime: String!
+    var currentTime: String!
+    let timeSelector: Selector = #selector(EditViewController.updateTime)
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // Segue 정보를 받아서 Edit을 눌렀다면 2, +를 눌렀다면 1
@@ -37,15 +43,15 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if section == 0 {
             if index == 0 {
-                cell!.textLabel!.text = "Repeat"
+                cell!.textLabel!.text = "반복요일"
                 //                cell?.detailTextLabel?.text =
                 cell?.accessoryType = .detailDisclosureButton
             } else if index == 1 {
-                cell!.textLabel!.text = "Label"
+                cell!.textLabel!.text = "알람이름"
                 //                cell?.detailTextLabel?.text =
                 cell?.accessoryType = .detailDisclosureButton
             } else if index == 2 {
-                cell!.textLabel!.text = "Sound"
+                cell!.textLabel!.text = "벨소리"
                 //                cell?.detailTextLabel?.text =
                 cell?.accessoryType = .detailDisclosureButton
             } else if index == 3 {
@@ -63,6 +69,28 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell!
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        // 반복요일
+        if indexPath.row == 0{
+            
+        // 알람이름
+        }else if indexPath.row == 1{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let labelEditVC = storyboard.instantiateViewController(withIdentifier: "labeledit")
+            self.navigationController?.pushViewController(labelEditVC, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        
+        // 벨소리
+        }else if indexPath.row == 2{
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let mediaEditVC = storyboard.instantiateViewController(withIdentifier: "media")
+            self.navigationController?.pushViewController(mediaEditVC, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -72,14 +100,55 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @objc func saveButtonAction(_ sender: Any){
         print("save 버튼 호출")
+    
+        let dateFM = DateFormatter()
+        dateFM.timeStyle = .short
+        let dateStr = dateFM.string(from: picker.date)
         
-        print(picker.date)
+         selectTime = dateStr
+//
+        UserDefaults.standard.set(dateStr, forKey: "date1")
+//        UserDefaults.standard.set(dateStr, forKey: "date2")
+//        UserDefaults.standard.set(dateStr, forKey: "date3")
+        
+//        currentTime = formatter.string(from: date as Date)
+//        if currentTime == selectTime{
+//            if alarm{
+//                callAlert()
+//            }
+//        }
+        print("선택된 시간:",selectTime)
+        
+//        self.navigationController?.popViewController(animated: true)
+        
         
     }
     
-
+    @objc func updateTime(){
+        let date = NSDate()
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        currentTime = formatter.string(from: date as Date)
+        
+//        let dateFM = DateFormatter()
+//        dateFM.timeStyle = .short
+//        let dateStr = dateFM.string(from: picker.date)
+//        selectTime = dateStr
+        
+        print("현재 시간:",currentTime)
+        print("선택된 시간:",selectTime)
+        
+        if currentTime == selectTime{
+            if alarm{
+                callAlert()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+         Timer.scheduledTimer(timeInterval: 1, target: self, selector: timeSelector, userInfo: nil, repeats: true)
 
     }
 
@@ -88,5 +157,30 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
-
+    func callAlert(){
+        playAlarm()
+        let alert = UIAlertController(title:"알림",message:"시간됐어요", preferredStyle:UIAlertControllerStyle.alert)
+        
+        let action = UIAlertAction(title:"끄기",style:UIAlertActionStyle.default, handler:{
+            //알람끄기
+            ACTION in self.alarm = false
+            //self.alarm = false
+            self.audioPlayer.stop()
+        })
+        alert.addAction(action)
+        self.present(alert,animated: true, completion: nil)
+        
+    }
+    var audioPlayer: AVAudioPlayer!
+    func playAlarm(){
+        let url = Bundle.main.url(forResource: "bell", withExtension: "mp3")!
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            guard let player = audioPlayer else { return }
+            player.prepareToPlay()
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
 }

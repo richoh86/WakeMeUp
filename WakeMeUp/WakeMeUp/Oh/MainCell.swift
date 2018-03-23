@@ -14,9 +14,31 @@ class MainCell: UITableViewCell {
     @IBOutlet var alarmName: UILabel!
     @IBOutlet var alarmSwitchOnOff: UISwitch!
     
+    
+    var insertTimeLabel: String?{
+        get{
+            return timeLabel.text
+        }
+        set{
+            timeLabel.text = newValue
+        }
+    }
+    
+    var insertAlarmName: String?{
+        get{
+            return alarmName.text
+        }
+        set{
+            alarmName.text = newValue
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

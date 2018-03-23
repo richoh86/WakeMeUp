@@ -19,33 +19,47 @@ enum storyBoardId{
 class MainViewController: UIViewController {
 
     
+    @IBOutlet var tableView: UITableView!
+    
+    var alarmModel: Alarms = Alarms()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         // Navigation Title 설정
         self.navigationItem.title = "내가 널 깨워줄게!"
-        
-//        // Navigation leftBarButtonItem & rightBarButtonItem 설정
-//        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: nil)
-//        let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: nil)
-//        
-//        self.navigationItem.leftBarButtonItem = editButton
-//        self.navigationItem.rightBarButtonItem = addButton
-        
-        
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    public func changeSwitchButtonState(index: Int) {
+        //let info = notification.userInfo as! [String: AnyObject]
+        //let index: Int = info["index"] as! Int
+//        alarmModel = Alarms()
+        if alarmModel.alarms[index].repeatWeekdays.isEmpty {
+            alarmModel.alarms[index].enabled = false
+        }
+        let cells = tableView.visibleCells
+        for cell in cells {
+            if cell.tag == index {
+                let sw = cell.accessoryView as! UISwitch
+                if alarmModel.alarms[index].repeatWeekdays.isEmpty {
+                    sw.setOn(false, animated: false)
+                    cell.backgroundColor = UIColor.groupTableViewBackground
+                    cell.textLabel?.alpha = 0.5
+                    cell.detailTextLabel?.alpha = 0.5
+                }
+            }
+        }
     }
 
 
@@ -55,14 +69,26 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell  = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
         
+        let date = UserDefaults.standard.string(forKey: "date1")
+        let alarmName = UserDefaults.standard.string(forKey: "alarmName")
+        
+        if date != nil {
+            cell.insertTimeLabel = date
+            cell.insertAlarmName = alarmName
+        }
+        
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 }
 

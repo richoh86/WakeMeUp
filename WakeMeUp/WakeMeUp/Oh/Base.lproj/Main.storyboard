@@ -30,30 +30,29 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TimeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UjU-qL-5iS">
-                                                    <rect key="frame" x="10" y="5" width="258" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="10" y="9" width="95" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AlarmName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsA-lm-Nkf">
-                                                    <rect key="frame" x="10" y="26" width="56" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AlarmName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsA-lm-Nkf">
+                                                    <rect key="frame" x="168" y="14.5" width="70.5" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7P-RH-PXc">
-                                                    <rect key="frame" x="316" y="10" width="51" height="23.5"/>
+                                                    <rect key="frame" x="316" y="6.5" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="H7P-RH-PXc" secondAttribute="bottom" constant="10" id="5us-ny-Knp"/>
-                                                <constraint firstItem="UjU-qL-5iS" firstAttribute="top" secondItem="ZBl-lE-icG" secondAttribute="top" constant="5" id="8au-4G-68u"/>
-                                                <constraint firstItem="H7P-RH-PXc" firstAttribute="leading" secondItem="UjU-qL-5iS" secondAttribute="trailing" constant="48" id="Gfh-fW-I2B"/>
-                                                <constraint firstItem="UjU-qL-5iS" firstAttribute="leading" secondItem="ZBl-lE-icG" secondAttribute="leading" constant="10" id="Rsu-yN-gVV"/>
-                                                <constraint firstItem="H7P-RH-PXc" firstAttribute="top" secondItem="ZBl-lE-icG" secondAttribute="top" constant="10" id="Y97-eR-fRh"/>
-                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="UjU-qL-5iS" secondAttribute="trailing" constant="112" id="dWB-Sf-rgU"/>
-                                                <constraint firstAttribute="trailing" secondItem="H7P-RH-PXc" secondAttribute="trailing" constant="10" id="jhP-Ur-Q9d"/>
+                                                <constraint firstItem="dsA-lm-Nkf" firstAttribute="leading" secondItem="UjU-qL-5iS" secondAttribute="trailing" constant="63" id="BDE-lT-yPf"/>
+                                                <constraint firstAttribute="trailing" secondItem="H7P-RH-PXc" secondAttribute="trailing" constant="10" id="Sh9-ZX-sIj"/>
+                                                <constraint firstItem="UjU-qL-5iS" firstAttribute="centerY" secondItem="ZBl-lE-icG" secondAttribute="centerY" id="TcF-Jt-1Xb"/>
+                                                <constraint firstItem="UjU-qL-5iS" firstAttribute="leading" secondItem="ZBl-lE-icG" secondAttribute="leading" constant="10" id="e7B-cC-mPz"/>
+                                                <constraint firstItem="H7P-RH-PXc" firstAttribute="leading" secondItem="dsA-lm-Nkf" secondAttribute="trailing" constant="77.5" id="hQz-ez-e48"/>
+                                                <constraint firstItem="dsA-lm-Nkf" firstAttribute="centerY" secondItem="ZBl-lE-icG" secondAttribute="centerY" id="qdi-wW-bIe"/>
+                                                <constraint firstItem="H7P-RH-PXc" firstAttribute="centerY" secondItem="ZBl-lE-icG" secondAttribute="centerY" id="szR-rQ-2on"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -86,6 +85,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="pig-Pe-RM5" id="ora-Bc-t68"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -94,10 +96,34 @@
         <!--Edit-->
         <scene sceneID="kqZ-Wc-KRA">
             <objects>
-                <viewControllerPlaceholder storyboardName="Edit" id="gfs-Gh-ET6" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="EditViewController" storyboardName="Edit" id="gfs-Gh-ET6" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TQE-pT-PTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1112" y="-154"/>
+        </scene>
+        <!--LabelEdit-->
+        <scene sceneID="EIL-EF-8qi">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="labeledit" storyboardName="LabelEdit" id="4oq-Ow-ODl" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ddE-0b-YAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1383" y="218"/>
+        </scene>
+        <!--Media-->
+        <scene sceneID="fTU-Th-1yn">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="media" storyboardName="Media" id="hm8-ti-Qji" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RGl-xB-EIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1366" y="267"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="Bsw-G4-fk5">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="edit" storyboardName="Edit" id="RUH-yF-nd4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azn-y9-sGC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1286" y="322"/>
         </scene>
         <!--내가 널 깨워줄게!-->
         <scene sceneID="0Xm-9c-aZT">

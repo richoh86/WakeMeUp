@@ -12,7 +12,16 @@ class LabelEditViewController: UIViewController, UITextFieldDelegate {
   // 알람 이름 작성 텍스트필드
   
   @IBOutlet weak var alarmTitleTf:UITextField!
-  var label: String!
+    
+//  var label: String?
+    
+    @IBAction func alarmNameConfirm(_ sender: Any) {
+        
+        UserDefaults.standard.set(alarmTitleTf.text, forKey: "alarmName")
+        self.navigationController?.popViewController(animated: true)
+    
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
       alarmTitleTf.becomeFirstResponder()
@@ -23,7 +32,7 @@ class LabelEditViewController: UIViewController, UITextFieldDelegate {
   // textfield done key
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     
-    label = alarmTitleTf.text
+    alarmTitleTf.resignFirstResponder()
     
     return true
   }
