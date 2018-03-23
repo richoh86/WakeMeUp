@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010CE3FA206537AD00ED5BB4 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010CE3F9206537AD00ED5BB4 /* SettingCell.swift */; };
 		79AA841D2064F4F6003BF774 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AA841C2064F4F6003BF774 /* AppDelegate.swift */; };
 		79AA841F2064F4F6003BF774 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AA841E2064F4F6003BF774 /* MainViewController.swift */; };
 		79AA84222064F4F6003BF774 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79AA84202064F4F6003BF774 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		010CE3F9206537AD00ED5BB4 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		79AA84192064F4F6003BF774 /* WakeMeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakeMeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AA841C2064F4F6003BF774 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79AA841E2064F4F6003BF774 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				79AA842E20650A02003BF774 /* EditViewController.swift */,
+				010CE3F9206537AD00ED5BB4 /* SettingCell.swift */,
 				79AA843620650AD3003BF774 /* Edit.storyboard */,
 			);
 			path = Yoo;
@@ -192,6 +195,7 @@
 				79AA843520650AB8003BF774 /* LabelEditViewController.swift in Sources */,
 				79AA843320650A9B003BF774 /* WeekdaysViewController.swift in Sources */,
 				79AA841D2064F4F6003BF774 /* AppDelegate.swift in Sources */,
+				010CE3FA206537AD00ED5BB4 /* SettingCell.swift in Sources */,
 				79AA842F20650A02003BF774 /* EditViewController.swift in Sources */,
 				79AA843120650A80003BF774 /* MediaViewController.swift in Sources */,
 			);
