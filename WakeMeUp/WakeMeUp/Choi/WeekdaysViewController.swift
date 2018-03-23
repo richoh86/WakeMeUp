@@ -7,29 +7,52 @@
 //
 
 import UIKit
+let weeks = ["Every Sunday", "Every Monday", "Every Tuesday", "Every Wednesday", "Every Thursday", "Every Friday", "Every Saturday", ]
 
-class WeekdaysViewController: UIViewController {
+class WeekdaysViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  var checkDays: [Int]!
+  @IBOutlet weak var weeksTableView:UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+      
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return weeks.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = weeksTableView.dequeueReusableCell(withIdentifier: "weekCell", for: indexPath)
+    cell.textLabel?.text = weeks[indexPath.row]
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    return cell
+  }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let cell = weeksTableView.cellForRow(at: indexPath)!
+    
+    if cell.accessoryType == .checkmark {
+      cell.accessoryType = .none
+    }else{
+      cell.accessoryType = .checkmark
     }
-    */
-
+    
+//    //cell 선택될때 체크마크
+//    if cell.isSelected{
+//
+//      cell.accessoryType = .checkmark
+//
+//    }else{
+//
+//      cell.accessoryType = .none
+//    }
+    
+  }
+  
 }

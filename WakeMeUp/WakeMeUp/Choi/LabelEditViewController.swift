@@ -8,28 +8,30 @@
 
 import UIKit
 
-class LabelEditViewController: UIViewController {
-
+class LabelEditViewController: UIViewController, UITextFieldDelegate {
+  // 알람 이름 작성 텍스트필드
+  
+  @IBOutlet weak var alarmTitleTf:UITextField!
+  var label: String!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+      alarmTitleTf.becomeFirstResponder()
+      alarmTitleTf.enablesReturnKeyAutomatically = true
+      
     }
 
+  // textfield done key
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    
+    label = alarmTitleTf.text
+    
+    return true
+  }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
