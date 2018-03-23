@@ -13,7 +13,7 @@
         <!--Weekdays View Controller-->
         <scene sceneID="e2r-Qv-luz">
             <objects>
-                <viewController id="Sml-yY-Y3D" customClass="WeekdaysViewController" customModule="WakeMeUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weekdays" id="Sml-yY-Y3D" customClass="WeekdaysViewController" customModule="WakeMeUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="otY-Kd-WbM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

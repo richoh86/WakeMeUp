@@ -63,6 +63,20 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell!
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let rightButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonAction(_:)))
+        self.navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    @objc func saveButtonAction(_ sender: Any){
+        print("save 버튼 호출")
+        
+        print(picker.date)
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Jlc-Pz-F0O">
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
->>>>>>> origin/edit
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
->>>>>>> origin/detail
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,15 +13,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="WakeMeUp" customModuleProvider="target" sceneMemberID="viewController">
-=======
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WakeMeUp" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> origin/edit
-=======
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WakeMeUp" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> origin/detail
+                <viewController storyboardIdentifier="main" id="BYZ-38-t0r" customClass="MainViewController" customModule="WakeMeUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,11 +78,26 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="guo-uk-R71"/>
+                    <navigationItem key="navigationItem" id="guo-uk-R71">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="5yy-Ag-JXM"/>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="R5s-Hf-JSa">
+                            <connections>
+                                <segue destination="gfs-Gh-ET6" kind="show" id="mrs-M9-rX9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="133.5832083958021"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="kqZ-Wc-KRA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Edit" id="gfs-Gh-ET6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TQE-pT-PTq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112" y="-154"/>
         </scene>
         <!--내가 널 깨워줄게!-->
         <scene sceneID="0Xm-9c-aZT">

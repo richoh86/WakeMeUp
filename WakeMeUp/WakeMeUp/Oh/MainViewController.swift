@@ -8,6 +8,14 @@
 
 import UIKit
 
+enum storyBoardId{
+    case main
+    case edit
+    case media
+    case weekdays
+    case labeledit
+}
+
 class MainViewController: UIViewController {
 
     
@@ -17,12 +25,12 @@ class MainViewController: UIViewController {
         // Navigation Title 설정
         self.navigationItem.title = "내가 널 깨워줄게!"
         
-        // Navigation leftBarButtonItem & rightBarButtonItem 설정
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: nil)
-        let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: nil)
-        
-        self.navigationItem.leftBarButtonItem = editButton
-        self.navigationItem.rightBarButtonItem = addButton
+//        // Navigation leftBarButtonItem & rightBarButtonItem 설정
+//        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: nil)
+//        let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: nil)
+//        
+//        self.navigationItem.leftBarButtonItem = editButton
+//        self.navigationItem.rightBarButtonItem = addButton
         
         
     }
