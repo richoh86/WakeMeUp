@@ -118,9 +118,9 @@
 		79AA843F20650B45003BF774 /* Choi */ = {
 			isa = PBXGroup;
 			children = (
+				79AA843420650AB8003BF774 /* LabelEditViewController.swift */,
 				79AA843020650A80003BF774 /* MediaViewController.swift */,
 				79AA843220650A9B003BF774 /* WeekdaysViewController.swift */,
-				79AA843420650AB8003BF774 /* LabelEditViewController.swift */,
 				79AA843820650AE1003BF774 /* Media.storyboard */,
 				79AA843A20650AF1003BF774 /* Weekdays.storyboard */,
 				79AA843C20650B0D003BF774 /* LabelEdit.storyboard */,

@@ -9,6 +9,10 @@
 import UIKit
 import AVFoundation
 
+//let timeSelector: Selector = #selector(EditViewController.updateTime)
+//var currentTime: String!
+
+
 class EditViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var picker: UIDatePicker!
@@ -18,6 +22,9 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var selectTime: String!
     var currentTime: String!
     let timeSelector: Selector = #selector(EditViewController.updateTime)
+    var arrayOfDateInUserdefault: [String] = []
+    
+    var setTimeInUserDefault: [String] = []
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // Segue 정보를 받아서 Edit을 눌렀다면 2, +를 눌렀다면 1
@@ -78,16 +85,18 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else if indexPath.row == 1{
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let labelEditVC = storyboard.instantiateViewController(withIdentifier: "labeledit")
-            self.navigationController?.pushViewController(labelEditVC, animated: true)
             tableView.deselectRow(at: indexPath, animated: true)
+            self.navigationController?.pushViewController(labelEditVC, animated: true)
+            
         
         // 벨소리
         }else if indexPath.row == 2{
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let mediaEditVC = storyboard.instantiateViewController(withIdentifier: "media")
-            self.navigationController?.pushViewController(mediaEditVC, animated: true)
             tableView.deselectRow(at: indexPath, animated: true)
+            self.navigationController?.pushViewController(mediaEditVC, animated: true)
+            
         }
     }
     
@@ -105,44 +114,43 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         dateFM.timeStyle = .short
         let dateStr = dateFM.string(from: picker.date)
         
-         selectTime = dateStr
-//
-        UserDefaults.standard.set(dateStr, forKey: "date1")
-//        UserDefaults.standard.set(dateStr, forKey: "date2")
-//        UserDefaults.standard.set(dateStr, forKey: "date3")
+//        selectTime = dateStr
         
-//        currentTime = formatter.string(from: date as Date)
-//        if currentTime == selectTime{
-//            if alarm{
-//                callAlert()
-//            }
-//        }
-        print("선택된 시간:",selectTime)
+        if let aCnt = UserDefaults.standard.stringArray(forKey: "dates")?.count, aCnt > 0 {
+            
+            guard let dates = UserDefaults.standard.stringArray(forKey: "dates") else {return}
+            arrayOfDateInUserdefault = dates
+            
+        }
+            
+        arrayOfDateInUserdefault.append(dateStr)
+        UserDefaults.standard.setValue(arrayOfDateInUserdefault, forKey: "dates")
+    
+//        print("선택된 시간:",selectTime)
         
-//        self.navigationController?.popViewController(animated: true)
-        
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc func updateTime(){
+        
         let date = NSDate()
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         currentTime = formatter.string(from: date as Date)
         
-//        let dateFM = DateFormatter()
-//        dateFM.timeStyle = .short
-//        let dateStr = dateFM.string(from: picker.date)
-//        selectTime = dateStr
+//        print("현재 시간:",currentTime)
+//        print("선택된 시간:",selectTime)
         
-        print("현재 시간:",currentTime)
-        print("선택된 시간:",selectTime)
+        guard let setTimeInUserDefault = UserDefaults.standard.stringArray(forKey: "dates") else {return}
+        
+        for selectTime in setTimeInUserDefault{
         
         if currentTime == selectTime{
             if alarm{
                 callAlert()
             }
         }
+      }
     }
     
     override func viewDidLoad() {
@@ -163,7 +171,8 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let action = UIAlertAction(title:"끄기",style:UIAlertActionStyle.default, handler:{
             //알람끄기
-            ACTION in self.alarm = false
+            ACTION in
+            self.alarm = false
             //self.alarm = false
             self.audioPlayer.stop()
         })

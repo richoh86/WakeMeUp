@@ -34,6 +34,15 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let dates = UserDefaults.standard.stringArray(forKey: "dates")!
+        
+        for date in dates {
+            print("저장된 알람들:", date)
+        }
+        
+//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector())
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,19 +78,36 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        var cnt = 0
+        
+        if let cntOfDates = UserDefaults.standard.stringArray(forKey: "dates")?.count, cntOfDates > 0 {
+            
+            print(cntOfDates)
+            cnt = cntOfDates
+        }
+        
+        print("cell 수량:",cnt)
+        return cnt
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell  = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
         
-        let date = UserDefaults.standard.string(forKey: "date1")
-        let alarmName = UserDefaults.standard.string(forKey: "alarmName")
         
-        if date != nil {
-            cell.insertTimeLabel = date
-            cell.insertAlarmName = alarmName
+        if let dates = UserDefaults.standard.stringArray(forKey: "dates"), dates.count > 0 {
+//            let alarmNames = UserDefaults.standard.stringArray(forKey: "alarmNames"), alarmNames.count > 0
+            
+            cell.insertTimeLabel = dates[indexPath.row]
+            cell.alarmName.isHidden = true
+//            cell.insertAlarmName = alarmNames[indexPath.row]
+        
+        }else{
+            
+            cell.timeLabel.isHidden = true
+            cell.alarmName.isHidden = true
+            cell.alarmSwitchOnOff.isHidden = true
         }
         
         return cell
@@ -100,4 +126,47 @@ extension MainViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            var dates = UserDefaults.standard.stringArray(forKey: "dates")!
+            dates.remove(at: indexPath.row)
+            
+            UserDefaults.standard.setValue(dates, forKey: "dates")
+            
+            self.tableView.reloadData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        
+        
+        return true
+    }
+    
+//   @objc func editButtonPressed(){
+//        tableView.setEditing(!tableView.isEditing, animated: true)
+//        if tableView.isEditing == true{
+//            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector)
+//        }else{
+//            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: UIBarButtonItemStyle.plain, target: self, action: #selector)
+//        }
+//    }
+    
+//    func doneButtonAction(_ sender: UIBarButtonItem){
+//        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "MainCell") as? MainCell
+//        
+//        var dates = UserDefaults.standard.stringArray(forKey: "dates")!
+//        dates.remove(at: indexPath.row)
+//        
+//        UserDefaults.standard.setValue(dates, forKey: "dates")
+//        
+//        self.tableView.reloadData()
+//        
+//        
+//    }
 }

@@ -13,13 +13,12 @@ import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, AlarmApplicationDelegate  {
-
+    
     var window: UIWindow?
     var audioPlayer: AVAudioPlayer?
     let alarmScheduler: AlarmSchedulerDelegate = Scheduler()
     var alarmModel: Alarms = Alarms()
     
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -37,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, Al
             print("could not active session. err:\(error!.localizedDescription)")
         }
         window?.tintColor = UIColor.red
-        
+
         return true
     }
     
@@ -159,35 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AVAudioPlayerDelegate, Al
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-//        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//                let content = UNMutableNotificationContent()
-//                content.title = NSString.localizedUserNotificationString(forKey: "Wake up!", arguments: nil)
-//                content.body = NSString.localizedUserNotificationString(forKey: "Rise and shine! It's morning time!",
-//                                                                        arguments: nil)
-//
-//                content.sound = UNNotificationSound.default()
-//        //        content.sound = UNNotificationSound(named: "MySound.aiff")
-//
-//                // Configure the trigger for a 7am wakeup.
-//                var dateInfo = DateComponents()
-//                dateInfo.hour = 7
-//                dateInfo.minute = 0
-//                let trigger = UNCalendarNotificationTrigger(dateMatching: dateInfo, repeats: false)
-//
-//                // Create the request object.
-//                let request = UNNotificationRequest(identifier: "MorningAlarm", content: content, trigger: trigger)
-        
-        //        let content = UNMutableNotificationContent()
-        //        // Configure the content. . .
-        //
-        //        // Assign the category (and the associated actions).
-        //        content.categoryIdentifier = "TIMER_EXPIRED"
-        //
-        //        // Create the request and schedule the notification.
-
-        
-        
-        
+//        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

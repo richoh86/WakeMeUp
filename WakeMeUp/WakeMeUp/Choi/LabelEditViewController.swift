@@ -13,12 +13,43 @@ class LabelEditViewController: UIViewController, UITextFieldDelegate {
   
   @IBOutlet weak var alarmTitleTf:UITextField!
     
+    var arrayOfalarmTitleTf: [String] = []
+    
 //  var label: String?
     
     @IBAction func alarmNameConfirm(_ sender: Any) {
         
-        UserDefaults.standard.set(alarmTitleTf.text, forKey: "alarmName")
-        self.navigationController?.popViewController(animated: true)
+        if let txtOfAlarmName = alarmTitleTf.text, txtOfAlarmName != "" {
+            
+            if let cntOfalarmNamesUser = UserDefaults.standard.stringArray(forKey: "alarmNames")?.count,
+                cntOfalarmNamesUser > 1 {
+                
+                arrayOfalarmTitleTf = UserDefaults.standard.stringArray(forKey: "alarNames")!
+                
+                arrayOfalarmTitleTf.append(txtOfAlarmName)
+                UserDefaults.standard.setValue(arrayOfalarmTitleTf, forKey: "alarmNames")
+            
+            }else{
+                
+                UserDefaults.standard.setValue(txtOfAlarmName, forKey: "alarmNames")
+                
+            }
+            
+            self.navigationController?.popViewController(animated: true)
+        
+        }else{
+            
+            let alert = UIAlertController(title: "알람 이름 미입력", message: "", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인!", style: .default, handler: { (action) in
+                
+               
+            })
+            
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+//        self.navigationController?.popViewController(animated: true)
     
     }
     
