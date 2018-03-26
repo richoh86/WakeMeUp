@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KrW-bU-2NX">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Label Edit View Controller-->
+        <scene sceneID="Xeh-Pw-dZN">
+            <objects>
+                <viewController storyboardIdentifier="labeledit" id="KrW-bU-2NX" customClass="LabelEditViewController" customModule="WakeMeUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="doM-OR-ODm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fOt-5d-Zm1">
+                                <rect key="frame" x="20" y="332.5" width="335" height="22"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알람의 이름을 지어주세요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFz-5E-Tlk">
+                                <rect key="frame" x="20" y="303" width="255" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QW2-IR-u3N">
+                                <rect key="frame" x="172" y="374" width="30" height="30"/>
+                                <state key="normal" title="완료"/>
+                                <connections>
+                                    <action selector="alarmNameConfirm:" destination="KrW-bU-2NX" eventType="touchUpInside" id="E6I-OF-AYl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TFz-5E-Tlk" firstAttribute="top" secondItem="pdo-Gg-I1m" secondAttribute="top" constant="283" id="Clg-BO-uk0"/>
+                            <constraint firstItem="QW2-IR-u3N" firstAttribute="leading" secondItem="pdo-Gg-I1m" secondAttribute="leading" constant="172" id="LaK-9j-Qp5"/>
+                            <constraint firstItem="fOt-5d-Zm1" firstAttribute="leading" secondItem="pdo-Gg-I1m" secondAttribute="leading" constant="20" id="Tfu-I6-7Vn"/>
+                            <constraint firstItem="pdo-Gg-I1m" firstAttribute="trailing" secondItem="TFz-5E-Tlk" secondAttribute="trailing" constant="100" id="UGS-6V-Ugq"/>
+                            <constraint firstItem="fOt-5d-Zm1" firstAttribute="top" secondItem="TFz-5E-Tlk" secondAttribute="bottom" constant="8.5" id="VvC-hO-VMd"/>
+                            <constraint firstItem="pdo-Gg-I1m" firstAttribute="trailing" secondItem="QW2-IR-u3N" secondAttribute="trailing" constant="173" id="Wtr-b6-eMc"/>
+                            <constraint firstItem="QW2-IR-u3N" firstAttribute="top" secondItem="fOt-5d-Zm1" secondAttribute="bottom" constant="19.5" id="h3h-JR-iMd"/>
+                            <constraint firstItem="fOt-5d-Zm1" firstAttribute="centerY" secondItem="pdo-Gg-I1m" secondAttribute="centerY" id="jnH-UC-4EC"/>
+                            <constraint firstItem="pdo-Gg-I1m" firstAttribute="trailing" secondItem="fOt-5d-Zm1" secondAttribute="trailing" constant="20" id="lM7-aN-OAf"/>
+                            <constraint firstItem="fOt-5d-Zm1" firstAttribute="centerX" secondItem="pdo-Gg-I1m" secondAttribute="centerX" id="pJz-xe-2se"/>
+                            <constraint firstItem="TFz-5E-Tlk" firstAttribute="leading" secondItem="pdo-Gg-I1m" secondAttribute="leading" constant="20" id="soF-zR-lTr"/>
+                            <constraint firstItem="pdo-Gg-I1m" firstAttribute="bottom" secondItem="QW2-IR-u3N" secondAttribute="bottom" constant="263" id="uRc-3H-pR3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pdo-Gg-I1m"/>
+                    </view>
+                    <connections>
+                        <outlet property="alarmTitleTf" destination="fOt-5d-Zm1" id="zEz-LH-TUl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gYn-ud-9Pn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="192.80000000000001" y="-46.326836581709152"/>
+        </scene>
+    </scenes>
+</document>

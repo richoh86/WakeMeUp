@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PJQ-uH-MaI">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Edit View Controller-->
+        <scene sceneID="eGx-Wl-roB">
+            <objects>
+                <viewController storyboardIdentifier="edit" useStoryboardIdentifierAsRestorationIdentifier="YES" id="PJQ-uH-MaI" customClass="EditViewController" customModule="WakeMeUp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zyG-Nj-kXR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iM2-bt-eio">
+                                <rect key="frame" x="0.0" y="286" width="375" height="381"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="settingCell" id="ba4-0t-Msj">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ba4-0t-Msj" id="mFr-sl-Oil">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PJQ-uH-MaI" id="K6f-Ji-pLY"/>
+                                    <outlet property="delegate" destination="PJQ-uH-MaI" id="s1K-FY-P4O"/>
+                                </connections>
+                            </tableView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="oCP-Zw-Kd6">
+                                <rect key="frame" x="0.0" y="60" width="375" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="543500298.678285">
+                                    <!--2018-03-23 12:18:18 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oCP-Zw-Kd6" firstAttribute="trailing" secondItem="QFF-4f-ckV" secondAttribute="trailing" id="CtC-6c-BFk"/>
+                            <constraint firstItem="iM2-bt-eio" firstAttribute="trailing" secondItem="QFF-4f-ckV" secondAttribute="trailing" id="KXU-98-PqR"/>
+                            <constraint firstItem="iM2-bt-eio" firstAttribute="leading" secondItem="QFF-4f-ckV" secondAttribute="leading" id="Vms-wm-oiw"/>
+                            <constraint firstItem="oCP-Zw-Kd6" firstAttribute="top" secondItem="QFF-4f-ckV" secondAttribute="top" constant="40" id="Y2z-97-xum"/>
+                            <constraint firstItem="oCP-Zw-Kd6" firstAttribute="leading" secondItem="QFF-4f-ckV" secondAttribute="leading" id="rBc-kO-pIy"/>
+                            <constraint firstItem="iM2-bt-eio" firstAttribute="top" secondItem="oCP-Zw-Kd6" secondAttribute="bottom" constant="10" id="v8i-pq-7oN"/>
+                            <constraint firstItem="iM2-bt-eio" firstAttribute="bottom" secondItem="QFF-4f-ckV" secondAttribute="bottom" id="y20-Dx-3NV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QFF-4f-ckV"/>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="oCP-Zw-Kd6" id="Y03-Au-ZnR"/>
+                        <outlet property="table" destination="iM2-bt-eio" id="16T-Bv-Nnf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="umA-8Z-OPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="178.56071964017991"/>
+        </scene>
+    </scenes>
+</document>
