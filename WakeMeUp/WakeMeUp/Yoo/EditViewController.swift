@@ -76,8 +76,8 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @objc func saveButtonAction(_ sender: Any){
         print("save 버튼 호출")
         
-        AlarmData.date = picker.date
-        alarmCount += 1
+        
+        
         print(picker.date)
         
     }

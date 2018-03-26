@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		010CE3FE2065703700ED5BB4 /* AlarmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010CE3FD2065703700ED5BB4 /* AlarmData.swift */; };
 		010CE4002065953200ED5BB4 /* IU.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 010CE3FF2065953200ED5BB4 /* IU.mp3 */; };
 		79AA841D2064F4F6003BF774 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AA841C2064F4F6003BF774 /* AppDelegate.swift */; };
 		79AA841F2064F4F6003BF774 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AA841E2064F4F6003BF774 /* MainViewController.swift */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		010CE3FD2065703700ED5BB4 /* AlarmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmData.swift; sourceTree = "<group>"; };
 		010CE3FF2065953200ED5BB4 /* IU.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = IU.mp3; sourceTree = "<group>"; };
 		79AA84192064F4F6003BF774 /* WakeMeUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakeMeUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AA841C2064F4F6003BF774 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				79AA842E20650A02003BF774 /* EditViewController.swift */,
-				010CE3FD2065703700ED5BB4 /* AlarmData.swift */,
 				79AA843620650AD3003BF774 /* Edit.storyboard */,
 			);
 			path = Yoo;
@@ -204,7 +201,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				79AA841F2064F4F6003BF774 /* MainViewController.swift in Sources */,
-				010CE3FE2065703700ED5BB4 /* AlarmData.swift in Sources */,
 				79AA844420651D1E003BF774 /* MainCell.swift in Sources */,
 				79AA843520650AB8003BF774 /* LabelEditViewController.swift in Sources */,
 				79AA843320650A9B003BF774 /* WeekdaysViewController.swift in Sources */,

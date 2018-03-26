@@ -67,14 +67,6 @@ extension MainViewController: UITableViewDataSource {
         
         let cell  = tableView.dequeueReusableCell(withIdentifier: "MainCell", for: indexPath) as! MainCell
         
-        if alarmCount > 0 {
-            let dateFM = DateFormatter()
-            dateFM.timeStyle = .short
-            let dateStr = dateFM.string(from: AlarmData.date)
-            
-            cell.textLabel?.text = dateStr
-        }
-        
         return cell
     }
 }
