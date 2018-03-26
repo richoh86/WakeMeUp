@@ -21,7 +21,9 @@ class EditViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var alarm: Bool = true
     var selectTime: String!
     var currentTime: String!
+    
     let timeSelector: Selector = #selector(EditViewController.updateTime)
+    
     var arrayOfDateInUserdefault: [String] = []
     
     var setTimeInUserDefault: [String] = []
